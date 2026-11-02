@@ -4,6 +4,7 @@ export type SectionId =
   | 'universe'
   | 'missions'
   | 'leadership'
+  | 'journey'
   | 'telemetry'
   | 'contact'
 

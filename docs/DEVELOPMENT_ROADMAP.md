@@ -38,3 +38,9 @@ The design system precedes feature visuals. The command model precedes terminal 
 - Pointer parallax and proximity response; compact hover and scroll-reveal labels.
 - ScrollTrigger driven orbit and domain separation states.
 - Lazy canvas loading, bounded DPR, demand rendering and a mobile or reduced-motion CSS fallback.
+
+## Sprint 2.1 delivered
+
+- Typed allowlist command engine with parsing, aliases, argument validation and safe structured output.
+- Terminal history, arrow navigation, Tab completion, contextual suggestions and mobile shortcut buttons.
+- Verified GitHub link and section actions; unknown personal details and missions remain clearly pending.

@@ -40,6 +40,10 @@ The approved palette, typography, spacing, borders, radii, shadows and glow live
 
 Content is separate from visual components and must satisfy shared TypeScript types. Unknown achievements, metrics and personal details remain explicit placeholders until the owner verifies them.
 
+## Terminal engine
+
+The terminal uses a pure, typed registry in `src/components/terminal/commandRegistry.ts`. `TerminalEngine.ts` parses and resolves only registered commands; handlers return structured blocks and optional section navigation actions. `useTerminal` owns input, output and bounded history. Output is rendered as React elements without HTML injection. The command palette shares this registry and terminal instance.
+
 ## Security and deployment
 
 Only `VITE_` variables intended for public browser exposure may be referenced in client code. Secrets never belong in Vite environment variables. AWS Amplify Hosting is planned for Sprint 5; no AWS resource is created during Sprint 0.

@@ -6,7 +6,7 @@ export const sectionRegistry = [
     id: 'terminal',
     label: 'Interactive Terminal',
     shortLabel: 'Terminal',
-    description: 'A safe command interface will be implemented in Sprint 2.',
+    description: 'A safe command interface for exploring this portfolio. Type help or choose a shortcut to begin.',
   },
   {
     id: 'universe',
@@ -25,6 +25,11 @@ export const sectionRegistry = [
     label: 'Leadership & Community',
     shortLabel: 'Leadership',
     description: 'Verified leadership and community work will be added in Sprint 3.',
+  },
+  {
+    id: 'journey',
+    label: 'Builder Journey',
+    description: 'Verified personal milestones and decisions will be added here.',
   },
   {
     id: 'telemetry',
