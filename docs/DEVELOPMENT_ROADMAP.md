@@ -31,3 +31,10 @@ The design system precedes feature visuals. The command model precedes terminal 
 - Approved design tokens and reusable button, badge and card primitives.
 - Minimal five-item navigation, editorial hero, chapter markers and dedicated canvas slot.
 - Responsive desktop, tablet and mobile rules with reduced-motion styling.
+
+## Sprint 1.2 delivered
+
+- Procedural R3F Builder Core with a faceted center, independent rings, domain nodes, connections and restrained particles.
+- Pointer parallax and proximity response; compact hover and scroll-reveal labels.
+- ScrollTrigger driven orbit and domain separation states.
+- Lazy canvas loading, bounded DPR, demand rendering and a mobile or reduced-motion CSS fallback.

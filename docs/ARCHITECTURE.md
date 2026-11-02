@@ -32,6 +32,10 @@ GSAP coordinates page and scroll timelines. React Three Fiber owns Three.js scen
 
 The approved palette, typography, spacing, borders, radii, shadows and glow live in `src/styles/global.css`. Fontsource packages bundle local Latin font files. `src/components/ui/Primitives.tsx` provides shared button links, badges and surface cards. `src/lib/motion.ts` holds timing presets for coordinated animation. The hero reserves a dedicated canvas slot with a CSS fallback.
 
+## Builder Core
+
+`HeroCanvasSlot` checks viewport size, reduced-motion preference and WebGL support before lazily loading `BuilderCoreScene`. A CSS composition remains available on mobile and unsupported devices. The R3F canvas uses adaptive DPR and demand rendering. Pointer coordinates and ScrollTrigger progress are mutable refs, so frame updates do not force React renders. GSAP owns the scroll timeline; R3F owns geometry and pointer hit testing. The core, orbit rings, connections, four domain nodes and 72 particles are procedural.
+
 ## Content model
 
 Content is separate from visual components and must satisfy shared TypeScript types. Unknown achievements, metrics and personal details remain explicit placeholders until the owner verifies them.

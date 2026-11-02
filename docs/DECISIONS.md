@@ -54,3 +54,11 @@
 | ESLint, typescript-eslint and React plugins | Static code-quality checks |
 | Vitest | Fast unit tests aligned with Vite configuration |
 | Fontsource packages | Locally bundled approved fonts, limited to Latin subsets |
+
+## ADR-006 — Conditional 3D experience
+
+**Status:** Accepted
+
+**Decision:** Load the Builder Core scene only on viewports above 760 px when WebGL is available and reduced motion is not requested. Use the CSS composition as the mobile and accessibility fallback.
+
+**Reason:** The R3F/Three.js scene adds about 252 KB gzip in its own lazy chunk. This keeps the mobile and reduced-motion path free from that download. Reassess bundle size and device performance during Sprint 5 QA.
