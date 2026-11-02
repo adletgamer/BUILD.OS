@@ -53,3 +53,4 @@
 | Lucide React | Accessible, consistent interface icons |
 | ESLint, typescript-eslint and React plugins | Static code-quality checks |
 | Vitest | Fast unit tests aligned with Vite configuration |
+| Fontsource packages | Locally bundled approved fonts, limited to Latin subsets |

@@ -28,6 +28,10 @@ src/main.tsx
 
 GSAP coordinates page and scroll timelines. React Three Fiber owns Three.js scenes and Drei helpers. Components must check reduced-motion preferences, clean up animations and provide a usable non-canvas fallback. Heavy scenes should load on demand.
 
+## Visual foundation
+
+The approved palette, typography, spacing, borders, radii, shadows and glow live in `src/styles/global.css`. Fontsource packages bundle local Latin font files. `src/components/ui/Primitives.tsx` provides shared button links, badges and surface cards. `src/lib/motion.ts` holds timing presets for coordinated animation. The hero reserves a dedicated canvas slot with a CSS fallback.
+
 ## Content model
 
 Content is separate from visual components and must satisfy shared TypeScript types. Unknown achievements, metrics and personal details remain explicit placeholders until the owner verifies them.

@@ -24,3 +24,10 @@ The design system precedes feature visuals. The command model precedes terminal 
 - Error boundary and reduced-motion utilities.
 - Credential-safe environment example and ignore rules.
 - Automated lint, test and production build commands.
+
+## Sprint 1.1 delivered
+
+- Local typography for Space Grotesk, Inter and JetBrains Mono.
+- Approved design tokens and reusable button, badge and card primitives.
+- Minimal five-item navigation, editorial hero, chapter markers and dedicated canvas slot.
+- Responsive desktop, tablet and mobile rules with reduced-motion styling.
