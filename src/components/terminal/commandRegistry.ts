@@ -24,6 +24,8 @@ export const commandRegistry: readonly CommandDefinition[] = [
   { name: 'mission', summary: 'Inspect a mission by slug', usage: 'mission <slug>', category: 'Navigate',
     handler: ({ args }) => args.length !== 1
       ? { blocks: [text('Provide one mission slug. Usage: mission <slug>. Try projects to view the mission section.')] }
+      : !/^[a-z0-9]+(?:-[a-z0-9]+)*$/i.test(args[0] ?? '')
+        ? { blocks: [text('Mission slugs use letters, numbers and single hyphens only. Example: mission cloud-project.')] }
       : { blocks: [heading(`Mission: ${args[0]}`), text('No verified mission matches this slug yet. Project data will be added in Sprint 3.'), link('View project missions', '#missions')] } },
   { name: 'leadership', summary: 'Explore leadership and community', usage: 'leadership', category: 'Navigate',
     handler: ({ args }) => noArgs(args, 'leadership') ?? section('Leadership & community', 'Verified leadership and community work will appear here.', '#leadership') },

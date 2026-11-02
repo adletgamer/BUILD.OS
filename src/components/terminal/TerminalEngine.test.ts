@@ -31,6 +31,9 @@ describe('terminal command registry', () => {
     const invalid = executeCommand('contact extra').blocks[0]
     expect(invalid?.type).toBe('text')
     if (invalid?.type === 'text') expect(invalid.text).toContain('Unexpected arguments')
+    const slug = executeCommand('mission bad/slug').blocks[0]
+    expect(slug?.type).toBe('text')
+    if (slug?.type === 'text') expect(slug.text).toContain('Mission slugs')
   })
 })
 

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { addHistory, completeCommand, executeCommand, historyAt, suggestCommands } from '../components/terminal/TerminalEngine'
 import type { TerminalEntry } from '../components/terminal/terminalTypes'
 
@@ -7,6 +7,7 @@ export function useTerminal() {
   const [history, setHistory] = useState<string[]>([])
   const [cursor, setCursor] = useState(0)
   const [input, setInput] = useState('')
+  const nextId = useRef(0)
 
   const execute = useCallback((raw: string) => {
     if (!raw.trim()) return
@@ -16,7 +17,9 @@ export function useTerminal() {
       setCursor(next.length)
       return next
     })
-    setEntries(current => result.clear ? [] : [...current, { id: Date.now() + Math.random(), input: raw.trim(), result }])
+    nextId.current += 1
+    const id = nextId.current
+    setEntries(current => result.clear ? [] : [...current, { id, input: raw.trim(), result }])
     setInput('')
     if (result.navigateTo) {
       window.location.hash = result.navigateTo

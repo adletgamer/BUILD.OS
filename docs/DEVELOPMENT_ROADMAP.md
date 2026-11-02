@@ -44,3 +44,9 @@ The design system precedes feature visuals. The command model precedes terminal 
 - Typed allowlist command engine with parsing, aliases, argument validation and safe structured output.
 - Terminal history, arrow navigation, Tab completion, contextual suggestions and mobile shortcut buttons.
 - Verified GitHub link and section actions; unknown personal details and missions remain clearly pending.
+
+## Sprint 2.2 delivered
+
+- Global Ctrl/Cmd+K command palette with Escape, arrow keys, Enter, search highlighting and recent actions.
+- Commands and portfolio sections share the terminal registry and execution path.
+- Modal focus management, focus restoration, screen reader labels and a visible mouse/mobile launcher.

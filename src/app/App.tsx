@@ -4,6 +4,7 @@ import { HeroCanvasSlot } from '../components/hero/HeroCanvasSlot'
 import { SectionNavigation } from '../components/navigation/SectionNavigation'
 import { Badge, ButtonLink, SurfaceCard } from '../components/ui/Primitives'
 import { Terminal } from '../components/terminal/Terminal'
+import { GlobalCommandPalette } from '../components/terminal/GlobalCommandPalette'
 import { useTerminal } from '../hooks/useTerminal'
 import { useEffect } from 'react'
 
@@ -15,6 +16,7 @@ export function App() {
   return (
     <div className="app-shell">
       <SectionNavigation />
+      <GlobalCommandPalette terminal={terminal} />
       <main id="main-content">
         <section className="hero-shell" id="home" aria-labelledby="hero-title">
           <div className="hero-copy-block">

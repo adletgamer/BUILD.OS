@@ -21,6 +21,12 @@ pnpm install
 pnpm dev
 ```
 
+## Explore BUILD.OS
+
+The terminal is a portfolio navigation interface. Type `help` to list its allowlisted commands; use ↑/↓ for history and Tab to complete a command. Click a suggested command on touch devices. Open the global command palette with Ctrl+K (Windows/Linux), Cmd+K (macOS), or the floating Search button. Arrow keys select a result, Enter runs it, and Escape closes the palette.
+
+The verified public GitHub repository is linked from `github`. Personal biography, mission data, and other social links remain pending verification.
+
 Quality checks:
 
 ```bash
