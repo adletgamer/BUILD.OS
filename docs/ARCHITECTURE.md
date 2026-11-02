@@ -44,6 +44,10 @@ Content is separate from visual components and must satisfy shared TypeScript ty
 
 The terminal uses a pure, typed registry in `src/components/terminal/commandRegistry.ts`. `TerminalEngine.ts` parses and resolves only registered commands; handlers return structured blocks and optional section navigation actions. `useTerminal` owns input, output and bounded history. Output is rendered as React elements without HTML injection. The command palette shares this registry and terminal instance.
 
+## Tech Universe
+
+`src/data/techUniverse.ts` holds four typed domains and a separate catalog of verified public repositories. `TechUniverse.tsx` renders a lightweight CSS/SVG constellation and selection panel; it does not load a second 3D scene. The map becomes a tappable card grid on mobile. GSAP ScrollTrigger reveals nodes on scroll and is skipped when reduced motion is preferred. Repository summaries and source links are recorded in `docs/TECH_UNIVERSE_CONTENT.md`. The terminal's `mission <slug>` command reads the same project catalog.
+
 ## Security and deployment
 
 Only `VITE_` variables intended for public browser exposure may be referenced in client code. Secrets never belong in Vite environment variables. AWS Amplify Hosting is planned for Sprint 5; no AWS resource is created during Sprint 0.

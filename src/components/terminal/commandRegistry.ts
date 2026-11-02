@@ -1,4 +1,5 @@
 import type { CommandDefinition, CommandResult, OutputBlock } from './terminalTypes'
+import { getProjectBySlug } from '../../data/techUniverse'
 
 const text = (value: string): OutputBlock => ({ type: 'text', text: value })
 const heading = (value: string): OutputBlock => ({ type: 'heading', text: value })
@@ -18,15 +19,18 @@ export const commandRegistry: readonly CommandDefinition[] = [
   { name: 'whoami', aliases: ['about'], summary: 'About this builder space', usage: 'whoami', category: 'Explore', keywords: ['about'],
     handler: ({ args }) => noArgs(args, 'whoami') ?? section('About BUILD.OS', 'An interactive portfolio for verified work, engineering decisions and community building. Personal biography is awaiting confirmation.', '#home') },
   { name: 'skills', aliases: ['stack'], summary: 'Explore technology domains', usage: 'skills', category: 'Explore', keywords: ['blockchain', 'web3', 'ai', 'cloud', 'cybersecurity', 'it'],
-    handler: ({ args }) => noArgs(args, 'skills') ?? section('Technology domains', 'Cloud, Web3, emerging technology and community are the current themes. Specific skills will be verified in the Tech Universe.', '#universe') },
+    handler: ({ args }) => noArgs(args, 'skills') ?? section('Technology domains', 'Explore Cloud & AWS, Web3 & Blockchain, AI & Data, and Product Engineering through documented public projects.', '#universe') },
   { name: 'projects', aliases: ['missions'], summary: 'Explore project missions', usage: 'projects', category: 'Navigate', keywords: ['project missions'],
     handler: ({ args }) => noArgs(args, 'projects') ?? section('Project missions', 'Verified projects and engineering decisions will appear here.', '#missions') },
   { name: 'mission', summary: 'Inspect a mission by slug', usage: 'mission <slug>', category: 'Navigate',
-    handler: ({ args }) => args.length !== 1
-      ? { blocks: [text('Provide one mission slug. Usage: mission <slug>. Try projects to view the mission section.')] }
-      : !/^[a-z0-9]+(?:-[a-z0-9]+)*$/i.test(args[0] ?? '')
-        ? { blocks: [text('Mission slugs use letters, numbers and single hyphens only. Example: mission cloud-project.')] }
-      : { blocks: [heading(`Mission: ${args[0]}`), text('No verified mission matches this slug yet. Project data will be added in Sprint 3.'), link('View project missions', '#missions')] } },
+    handler: ({ args }) => {
+      if (args.length !== 1) return { blocks: [text('Provide one mission slug. Usage: mission <slug>. Try skills to explore verified projects.')] }
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/i.test(args[0] ?? '')) return { blocks: [text('Mission slugs use letters, numbers and single hyphens only. Example: mission aviso-andino.')] }
+      const project = getProjectBySlug(args[0] ?? '')
+      return project
+        ? { blocks: [heading(project.name), text(project.summary), { type: 'list', items: [...project.technologies] }, link('View public repository', project.url)] }
+        : { blocks: [text(`No verified project matches "${args[0]}". Use skills to explore documented projects.`), link('Explore Tech Universe', '#universe')] }
+    } },
   { name: 'leadership', summary: 'Explore leadership and community', usage: 'leadership', category: 'Navigate',
     handler: ({ args }) => noArgs(args, 'leadership') ?? section('Leadership & community', 'Verified leadership and community work will appear here.', '#leadership') },
   { name: 'journey', summary: 'Explore the builder journey', usage: 'journey', category: 'Explore',

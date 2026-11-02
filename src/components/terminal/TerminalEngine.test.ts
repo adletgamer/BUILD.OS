@@ -35,6 +35,13 @@ describe('terminal command registry', () => {
     expect(slug?.type).toBe('text')
     if (slug?.type === 'text') expect(slug.text).toContain('Mission slugs')
   })
+  it('resolves documented mission slugs to public repositories', () => {
+    const result = executeCommand('mission aviso-andino')
+    expect(result.blocks).toContainEqual({ type: 'link', label: 'View public repository', href: 'https://github.com/adletgamer/AvisoAndino' })
+    const unknown = executeCommand('mission nonexistent').blocks[0]
+    expect(unknown?.type).toBe('text')
+    if (unknown?.type === 'text') expect(unknown.text).toContain('No verified project')
+  })
 })
 
 describe('terminal history and suggestions', () => {

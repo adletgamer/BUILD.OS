@@ -50,3 +50,10 @@ The design system precedes feature visuals. The command model precedes terminal 
 - Global Ctrl/Cmd+K command palette with Escape, arrow keys, Enter, search highlighting and recent actions.
 - Commands and portfolio sections share the terminal registry and execution path.
 - Modal focus management, focus restoration, screen reader labels and a visible mouse/mobile launcher.
+
+## Sprint 3.1 delivered
+
+- Four evidence-backed technology domains and a catalog of linked public projects.
+- Interactive CSS/SVG constellation with contextual selection panel and related project links.
+- Responsive touch card layout and reduced-motion aware progressive ScrollTrigger reveal.
+- Terminal mission slug lookup reusing the verified project catalog.
